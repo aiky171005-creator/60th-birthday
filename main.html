@@ -12,12 +12,13 @@
     :root {
       --bg-top: #efe4d6;
       --bg-bottom: #f8f2eb;
-      --card: rgba(255, 252, 247, 0.94);
+      --card: rgba(255, 252, 247, 0.95);
       --line: #eadbcd;
       --text: #2f2723;
       --subtle: #76655a;
       --accent: #a06f4f;
       --accent-soft: #f5ece3;
+      --white: #fffdf9;
     }
 
     body {
@@ -119,34 +120,77 @@
 
     .program {
       margin-top: 12px;
-      padding: 18px 16px;
-      border-radius: 20px;
-      background: linear-gradient(180deg, #fff7ef, #fffdf9);
+      padding: 20px 16px 16px;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.76), transparent 28%),
+        linear-gradient(180deg, #fff7ef, #fffdf9);
       border: 1px solid var(--line);
       text-align: left;
     }
 
+    .program__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
     .program__title {
-      margin: 0 0 12px;
+      margin: 0;
       color: var(--accent);
       font-size: 14px;
       font-weight: 700;
       letter-spacing: 0.08em;
     }
 
-    .program ol {
-      margin: 0;
-      padding-left: 20px;
-      color: var(--text);
+    .program__badge {
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(160, 111, 79, 0.12);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
     }
 
-    .program li {
-      margin-bottom: 10px;
+    .program__list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .program__item {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 12px 0;
+      border-top: 1px solid rgba(234, 219, 205, 0.8);
+    }
+
+    .program__item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .program__number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #f2dfcf;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .program__text {
+      display: block;
+      font-size: 15px;
       line-height: 1.7;
-    }
-
-    .program li:last-child {
-      margin-bottom: 0;
+      color: var(--text);
     }
 
     .note {
@@ -171,6 +215,36 @@
       font-size: 14px;
       font-weight: 700;
       letter-spacing: 0.08em;
+    }
+
+    .rsvp__summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .rsvp__stat {
+      padding: 14px 12px;
+      border-radius: 16px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .rsvp__stat-label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 12px;
+      color: var(--subtle);
+    }
+
+    .rsvp__stat-count {
+      display: block;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
     }
 
     .rsvp__buttons {
@@ -320,6 +394,13 @@
       color: var(--subtle);
     }
 
+    .sync-status {
+      margin-top: 12px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--subtle);
+    }
+
     @media (max-width: 480px) {
       .card__content {
         padding: 24px 16px 22px;
@@ -388,15 +469,36 @@
         </ul>
 
         <section class="program">
-          <p class="program__title">PROGRAM</p>
-          <ol>
-            <li>환영의 포옹식 (입구에 생일자 서있을 예정)</li>
-            <li>식사</li>
-            <li>선물 증정식</li>
-            <li>행운권 추첨 (시행 여부 및 세부 내용 생각중)</li>
-            <li>덕담 시간 (인당 20초씩 준비)</li>
-            <li>생일자 인사 및 폐회</li>
-          </ol>
+          <div class="program__header">
+            <p class="program__title">PROGRAM</p>
+            <span class="program__badge">우리끼리 편하게</span>
+          </div>
+          <div class="program__list">
+            <div class="program__item">
+              <span class="program__number">01</span>
+              <span class="program__text">환영의 포옹식 (입구에 생일자 서있을 예정)</span>
+            </div>
+            <div class="program__item">
+              <span class="program__number">02</span>
+              <span class="program__text">도란도란 식사</span>
+            </div>
+            <div class="program__item">
+              <span class="program__number">03</span>
+              <span class="program__text">선물 증정식</span>
+            </div>
+            <div class="program__item">
+              <span class="program__number">04</span>
+              <span class="program__text">행운권 추첨 (시행 여부 및 세부 내용 생각중)</span>
+            </div>
+            <div class="program__item">
+              <span class="program__number">05</span>
+              <span class="program__text">덕담 시간 (인당 20초씩 준비)</span>
+            </div>
+            <div class="program__item">
+              <span class="program__number">06</span>
+              <span class="program__text">생일자 인사 및 폐회</span>
+            </div>
+          </div>
         </section>
 
         <p class="note">
@@ -405,6 +507,17 @@
 
         <section class="rsvp">
           <p class="rsvp__title">RSVP</p>
+          <div class="rsvp__summary">
+            <div class="rsvp__stat">
+              <span class="rsvp__stat-label">총 참석자</span>
+              <strong class="rsvp__stat-count" id="attend-count">0</strong>
+            </div>
+            <div class="rsvp__stat">
+              <span class="rsvp__stat-label">총 불참자</span>
+              <strong class="rsvp__stat-count" id="decline-count">0</strong>
+            </div>
+          </div>
+
           <div class="rsvp__buttons">
             <button class="rsvp__button rsvp__button--attend" type="button" data-type="attend">참석합니다</button>
             <button class="rsvp__button rsvp__button--decline" type="button" data-type="decline">불참합니다</button>
@@ -431,13 +544,16 @@
               <p class="guest-list__empty" id="decline-empty">아직 등록된 이름이 없습니다.</p>
             </section>
           </div>
+
+          <p class="sync-status" id="sync-status">응답 명단을 불러오는 중입니다.</p>
         </section>
       </div>
     </section>
   </main>
 
   <script>
-    const STORAGE_KEY = "birthday-invite-rsvp";
+    const STORAGE_KEY = "birthday-invite-rsvp-cache";
+    const API_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
     const buttons = document.querySelectorAll(".rsvp__button");
     const form = document.getElementById("rsvp-form");
     const label = form.querySelector(".rsvp__label");
@@ -446,12 +562,17 @@
     const declineList = document.getElementById("decline-list");
     const attendEmpty = document.getElementById("attend-empty");
     const declineEmpty = document.getElementById("decline-empty");
+    const attendCount = document.getElementById("attend-count");
+    const declineCount = document.getElementById("decline-count");
+    const syncStatus = document.getElementById("sync-status");
 
     let currentType = "attend";
     let guestData = {
       attend: [],
       decline: []
     };
+
+    const hasRemoteApi = API_URL && API_URL !== "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
 
     const saveGuestData = () => {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(guestData));
@@ -472,22 +593,18 @@
       }
     };
 
+    const setStatusMessage = (message) => {
+      syncStatus.textContent = message;
+    };
+
     const updateEmptyState = () => {
       attendEmpty.style.display = attendList.children.length ? "none" : "block";
       declineEmpty.style.display = declineList.children.length ? "none" : "block";
     };
 
-    const moveGuest = (name, fromType, toType) => {
-      guestData[fromType] = guestData[fromType].filter((guest) => guest !== name);
-      guestData[toType].push(name);
-      saveGuestData();
-      renderGuestList();
-    };
-
-    const deleteGuest = (name, type) => {
-      guestData[type] = guestData[type].filter((guest) => guest !== name);
-      saveGuestData();
-      renderGuestList();
+    const updateCounts = () => {
+      attendCount.textContent = guestData.attend.length;
+      declineCount.textContent = guestData.decline.length;
     };
 
     const createGuestItem = (name, type) => {
@@ -505,15 +622,15 @@
       moveButton.className = "guest-list__action";
       moveButton.type = "button";
       moveButton.textContent = type === "attend" ? "불참으로 변경" : "참석으로 변경";
-      moveButton.addEventListener("click", () => {
-        moveGuest(name, type, type === "attend" ? "decline" : "attend");
+      moveButton.addEventListener("click", async () => {
+        await updateGuest(name, type === "attend" ? "decline" : "attend");
       });
 
       deleteButton.className = "guest-list__action guest-list__action--delete";
       deleteButton.type = "button";
       deleteButton.textContent = "삭제";
-      deleteButton.addEventListener("click", () => {
-        deleteGuest(name, type);
+      deleteButton.addEventListener("click", async () => {
+        await removeGuest(name, type);
       });
 
       actions.appendChild(moveButton);
@@ -537,6 +654,90 @@
       });
 
       updateEmptyState();
+      updateCounts();
+    };
+
+    const fetchGuestData = async () => {
+      if (!hasRemoteApi) {
+        setStatusMessage("공유 응답 기능을 쓰려면 Apps Script URL을 연결해주세요. 지금은 이 기기에서만 저장됩니다.");
+        return;
+      }
+
+      try {
+        setStatusMessage("가족 응답 명단을 불러오는 중입니다.");
+        const response = await fetch(API_URL, {
+          method: "GET",
+          cache: "no-store"
+        });
+        const result = await response.json();
+
+        guestData.attend = Array.isArray(result.attend) ? result.attend : [];
+        guestData.decline = Array.isArray(result.decline) ? result.decline : [];
+        saveGuestData();
+        renderGuestList();
+        setStatusMessage("가족 전체 응답 명단이 동기화되었습니다.");
+      } catch (error) {
+        setStatusMessage("온라인 명단을 불러오지 못해 최근 저장본을 보여주고 있습니다.");
+      }
+    };
+
+    const syncGuestData = async (action, name, status) => {
+      if (!hasRemoteApi) {
+        setStatusMessage("Apps Script URL이 연결되지 않아 이 기기에서만 저장 중입니다.");
+        return;
+      }
+
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify({
+          action,
+          name,
+          status
+        })
+      });
+
+      const result = await response.json();
+      guestData.attend = Array.isArray(result.attend) ? result.attend : [];
+      guestData.decline = Array.isArray(result.decline) ? result.decline : [];
+      saveGuestData();
+      renderGuestList();
+      setStatusMessage("가족 전체 응답 명단이 업데이트되었습니다.");
+    };
+
+    const updateGuest = async (name, nextType) => {
+      const oppositeType = nextType === "attend" ? "decline" : "attend";
+
+      if (guestData[nextType].includes(name)) {
+        return;
+      }
+
+      guestData[oppositeType] = guestData[oppositeType].filter((guest) => guest !== name);
+      guestData[nextType].push(name);
+      saveGuestData();
+      renderGuestList();
+      setStatusMessage("응답을 저장하는 중입니다.");
+
+      try {
+        await syncGuestData("upsert", name, nextType);
+      } catch (error) {
+        setStatusMessage("온라인 저장에 실패했습니다. 연결 후 다시 시도해주세요.");
+      }
+    };
+
+    const removeGuest = async (name, type) => {
+      guestData[type] = guestData[type].filter((guest) => guest !== name);
+      saveGuestData();
+      renderGuestList();
+      setStatusMessage("응답을 삭제하는 중입니다.");
+
+      try {
+        await syncGuestData("delete", name, type);
+      } catch (error) {
+        setStatusMessage("온라인 삭제에 실패했습니다. 연결 후 다시 시도해주세요.");
+      }
     };
 
     const setMode = (type) => {
@@ -556,7 +757,7 @@
       });
     });
 
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
       const name = input.value.trim();
@@ -565,24 +766,14 @@
         return;
       }
 
-      const oppositeType = currentType === "attend" ? "decline" : "attend";
-
-      if (guestData[currentType].includes(name)) {
-        input.value = "";
-        input.focus();
-        return;
-      }
-
-      guestData[oppositeType] = guestData[oppositeType].filter((guest) => guest !== name);
-      guestData[currentType].push(name);
-      saveGuestData();
-      renderGuestList();
+      await updateGuest(name, currentType);
       input.value = "";
       input.focus();
     });
 
     loadGuestData();
     renderGuestList();
+    fetchGuestData();
   </script>
 </body>
 </html>

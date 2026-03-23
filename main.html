@@ -9,100 +9,299 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --bg-top: #efe4d6;
+      --bg-bottom: #f8f2eb;
+      --card: rgba(255, 252, 247, 0.94);
+      --line: #eadbcd;
+      --text: #2f2723;
+      --subtle: #76655a;
+      --accent: #a06f4f;
+      --accent-soft: #f5ece3;
+    }
+
     body {
       margin: 0;
-      background: #f7f1eb;
-      color: #2f2723;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.55), transparent 30%),
+        linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+      color: var(--text);
       font-family: "Apple SD Gothic Neo", "Noto Serif KR", serif;
     }
 
     .invite {
-      max-width: 720px;
+      max-width: 460px;
       margin: 0 auto;
       min-height: 100vh;
-      padding: 32px 20px 56px;
+      padding: 18px 14px 40px;
     }
 
     .card {
-      background: #fffdf9;
-      border-radius: 24px;
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 28px;
       overflow: hidden;
-      box-shadow: 0 20px 60px rgba(75, 47, 31, 0.12);
+      box-shadow: 0 18px 40px rgba(86, 56, 38, 0.12);
+      backdrop-filter: blur(10px);
     }
 
     .card img {
       width: 100%;
       display: block;
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 4 / 5.2;
       object-fit: cover;
     }
 
     .card__content {
-      padding: 32px 24px 36px;
+      padding: 26px 18px 24px;
       text-align: center;
-      line-height: 1.8;
     }
 
     .card__eyebrow {
-      margin: 0 0 10px;
-      font-size: 14px;
-      letter-spacing: 0.18em;
-      color: #a57c5b;
+      margin: 0 0 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--accent);
     }
 
     .card h1 {
       margin: 0;
-      font-size: 32px;
-      line-height: 1.35;
+      font-size: 28px;
+      line-height: 1.4;
+      letter-spacing: -0.02em;
     }
 
     .card__message {
-      margin: 20px 0 28px;
-      font-size: 16px;
-      color: #5f5249;
+      margin: 16px 0 24px;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--subtle);
     }
 
     .info {
       margin: 0;
       padding: 0;
       list-style: none;
-      border-top: 1px solid #eee2d6;
     }
 
     .info li {
       display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 16px 0;
-      border-bottom: 1px solid #eee2d6;
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px;
+      margin-bottom: 10px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fffaf5;
       font-size: 15px;
+      text-align: left;
     }
 
     .info strong {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
       font-weight: 700;
     }
 
     .info span {
-      text-align: right;
-      color: #5f5249;
+      color: var(--text);
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    .program {
+      margin-top: 12px;
+      padding: 18px 16px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #fff7ef, #fffdf9);
+      border: 1px solid var(--line);
+      text-align: left;
+    }
+
+    .program__title {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .program ol {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--text);
+    }
+
+    .program li {
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+
+    .program li:last-child {
+      margin-bottom: 0;
+    }
+
+    .note {
+      margin-top: 18px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--subtle);
+    }
+
+    .rsvp {
+      margin-top: 20px;
+      padding: 18px 16px;
+      border-radius: 20px;
+      background: #fffaf5;
+      border: 1px solid var(--line);
+      text-align: left;
+    }
+
+    .rsvp__title {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .rsvp__buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .rsvp__button {
+      border: 0;
+      border-radius: 14px;
+      padding: 14px 12px;
+      font: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s ease, opacity 0.15s ease, background 0.15s ease;
+    }
+
+    .rsvp__button:active {
+      transform: scale(0.98);
+    }
+
+    .rsvp__button--attend {
+      background: #d9b08f;
+      color: #fff;
+    }
+
+    .rsvp__button--decline {
+      background: #efe1d4;
+      color: #7c614f;
+    }
+
+    .rsvp__form {
+      margin-top: 14px;
+      display: none;
+    }
+
+    .rsvp__form.is-visible {
+      display: block;
+    }
+
+    .rsvp__label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: var(--subtle);
+    }
+
+    .rsvp__row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .rsvp__input {
+      flex: 1;
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 13px 14px;
+      font: inherit;
+      font-size: 15px;
+      color: var(--text);
+      background: #fff;
+    }
+
+    .rsvp__submit {
+      border: 0;
+      border-radius: 14px;
+      padding: 0 16px;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      background: var(--accent);
+      color: #fff;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .guest-list {
+      margin-top: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .guest-list__section {
+      padding: 16px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .guest-list__heading {
+      margin: 0 0 10px;
+      font-size: 15px;
+      color: var(--accent);
+    }
+
+    .guest-list__names {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    .guest-list__empty {
+      margin: 0;
+      font-size: 14px;
+      color: var(--subtle);
     }
 
     @media (max-width: 480px) {
       .card__content {
-        padding: 28px 18px 32px;
+        padding: 24px 16px 22px;
       }
 
       .card h1 {
-        font-size: 27px;
+        font-size: 25px;
       }
 
       .info li {
-        flex-direction: column;
-        gap: 4px;
+        padding: 15px 14px;
       }
 
-      .info span {
-        text-align: left;
+      .rsvp__row {
+        flex-direction: column;
+      }
+
+      .rsvp__submit {
+        padding: 13px 16px;
       }
     }
   </style>
@@ -110,13 +309,13 @@
 <body>
   <main class="invite">
     <section class="card">
-      <img src="invite.jpg" alt="환갑 식사 초대 이미지">
+      <img src="image.jpeg" alt="환갑 식사 초대 이미지">
       <div class="card__content">
         <p class="card__eyebrow">INVITATION</p>
         <h1>아빠의 환갑 식사에<br>초대합니다</h1>
         <p class="card__message">
-          소소한 축하의 자리를 마련했습니다.<br>
-          편한 마음으로 오셔서 따뜻한 축하를 나눠 주세요.
+          소소하지만 마음 가득한 자리를 준비했습니다.<br>
+          편하게 오셔서 함께 웃고 축하해 주세요.
         </p>
 
         <ul class="info">
@@ -140,21 +339,115 @@
             <strong>준비물</strong>
             <span>축하의 마음</span>
           </li>
-          <li>
-            <strong>식순</strong>
-            <span>
-              1. 환영의 포옹식(입구에 생일자 서있을 예정)<br>
-              2. 도란도란 식사<br>
-              3. 케이크 커팅식<br>
-              4. 선물 증정식<br>
-              5. 행운권 추첨<br>
-              6. 덕담 시간(인당 20초씩 준비)<br>
-              7. 생일자 인사 및 폐회
-            </span>
-          </li>
         </ul>
+
+        <section class="program">
+          <p class="program__title">PROGRAM</p>
+          <ol>
+            <li>환영의 포옹식 (입구에 생일자 서있을 예정)</li>
+            <li>식사</li>
+            <li>선물 증정식</li>
+            <li>행운권 추첨 (시행 여부 및 세부 내용 생각중)</li>
+            <li>덕담 시간 (인당 20초씩 준비)</li>
+            <li>생일자 인사 및 폐회</li>
+          </ol>
+        </section>
+
+        <p class="note">
+          초대 링크를 받으신 분만 함께해 주시면 됩니다.
+        </p>
+
+        <section class="rsvp">
+          <p class="rsvp__title">RSVP</p>
+          <div class="rsvp__buttons">
+            <button class="rsvp__button rsvp__button--attend" type="button" data-type="attend">참석합니다</button>
+            <button class="rsvp__button rsvp__button--decline" type="button" data-type="decline">불참합니다</button>
+          </div>
+
+          <form class="rsvp__form" id="rsvp-form">
+            <label class="rsvp__label" for="guest-name">참석자 성함을 입력해주세요.</label>
+            <div class="rsvp__row">
+              <input class="rsvp__input" id="guest-name" name="guestName" type="text" placeholder="이름 입력">
+              <button class="rsvp__submit" type="submit">등록</button>
+            </div>
+          </form>
+
+          <div class="guest-list">
+            <section class="guest-list__section">
+              <h3 class="guest-list__heading">참석자</h3>
+              <ol class="guest-list__names" id="attend-list"></ol>
+              <p class="guest-list__empty" id="attend-empty">아직 등록된 이름이 없습니다.</p>
+            </section>
+
+            <section class="guest-list__section">
+              <h3 class="guest-list__heading">불참자</h3>
+              <ol class="guest-list__names" id="decline-list"></ol>
+              <p class="guest-list__empty" id="decline-empty">아직 등록된 이름이 없습니다.</p>
+            </section>
+          </div>
+        </section>
       </div>
     </section>
   </main>
+
+  <script>
+    const buttons = document.querySelectorAll(".rsvp__button");
+    const form = document.getElementById("rsvp-form");
+    const label = form.querySelector(".rsvp__label");
+    const input = document.getElementById("guest-name");
+    const attendList = document.getElementById("attend-list");
+    const declineList = document.getElementById("decline-list");
+    const attendEmpty = document.getElementById("attend-empty");
+    const declineEmpty = document.getElementById("decline-empty");
+
+    let currentType = "attend";
+
+    const updateEmptyState = () => {
+      attendEmpty.style.display = attendList.children.length ? "none" : "block";
+      declineEmpty.style.display = declineList.children.length ? "none" : "block";
+    };
+
+    const setMode = (type) => {
+      currentType = type;
+      form.classList.add("is-visible");
+      label.textContent = type === "attend"
+        ? "참석자 성함을 입력해주세요."
+        : "불참자 성함을 입력해주세요.";
+      input.placeholder = type === "attend" ? "참석자 이름 입력" : "불참자 이름 입력";
+      input.value = "";
+      input.focus();
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        setMode(button.dataset.type);
+      });
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const name = input.value.trim();
+      if (!name) {
+        input.focus();
+        return;
+      }
+
+      const item = document.createElement("li");
+      item.textContent = name;
+
+      if (currentType === "attend") {
+        attendList.appendChild(item);
+      } else {
+        declineList.appendChild(item);
+      }
+
+      input.value = "";
+      updateEmptyState();
+      input.focus();
+    });
+
+    updateEmptyState();
+  </script>
 </body>
 </html>

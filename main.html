@@ -436,7 +436,7 @@
 <body>
   <main class="invite">
     <section class="card">
-      <img src="invite.jpg" alt="환갑 식사 초대 이미지">
+      <img src="image.jpeg" alt="환갑 식사 초대 이미지">
       <div class="card__content">
         <p class="card__eyebrow">INVITATION</p>
         <h1>아빠의 환갑 식사에<br>초대합니다</h1>
@@ -471,7 +471,6 @@
         <section class="program">
           <div class="program__header">
             <p class="program__title">PROGRAM</p>
-            <span class="program__badge">우리끼리 편하게</span>
           </div>
           <div class="program__list">
             <div class="program__item">
@@ -488,7 +487,7 @@
             </div>
             <div class="program__item">
               <span class="program__number">04</span>
-              <span class="program__text">행운권 추첨</span>
+              <span class="program__text">행운권 추첨 (시행 여부 및 세부 내용 생각중)</span>
             </div>
             <div class="program__item">
               <span class="program__number">05</span>
@@ -502,11 +501,11 @@
         </section>
 
         <p class="note">
-          참석자 수 확인을 위해 참석자 전체 성함을 등록해주세요.
+          초대 링크를 받으신 분만 함께해 주시면 됩니다.
         </p>
 
         <section class="rsvp">
-          <p class="rsvp__title">RSVP</p>
+          <p class="rsvp__title">참석자</p>
           <div class="rsvp__summary">
             <div class="rsvp__stat">
               <span class="rsvp__stat-label">총 참석자</span>
@@ -572,7 +571,7 @@
       decline: []
     };
 
-    const hasRemoteApi = API_URL && API_URL !== "https://script.google.com/macros/s/AKfycbyOLoN-FtMowt2LzFRddtiYFrX9r0f1TnXQPkne8O7vWUyL5bDlACHBq7dGlYodiS_H/exec";
+    const hasRemoteApi = API_URL && API_URL !== "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
 
     const saveGuestData = () => {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(guestData));

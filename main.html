@@ -553,7 +553,7 @@
 
   <script>
     const STORAGE_KEY = "birthday-invite-rsvp-cache";
-    const API_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+    const API_URL = "https://script.google.com/macros/s/AKfycbyOLoN-FtMowt2LzFRddtiYFrX9r0f1TnXQPkne8O7vWUyL5bDlACHBq7dGlYodiS_H/exec";
     const buttons = document.querySelectorAll(".rsvp__button");
     const form = document.getElementById("rsvp-form");
     const label = form.querySelector(".rsvp__label");
@@ -572,7 +572,7 @@
       decline: []
     };
 
-    const hasRemoteApi = API_URL && API_URL !== "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+    const hasRemoteApi = API_URL && API_URL !== "https://script.google.com/macros/s/AKfycbyOLoN-FtMowt2LzFRddtiYFrX9r0f1TnXQPkne8O7vWUyL5bDlACHBq7dGlYodiS_H/exec";
 
     const saveGuestData = () => {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(guestData));

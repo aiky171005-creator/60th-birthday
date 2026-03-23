@@ -10,26 +10,26 @@
     }
 
     :root {
-      --bg-top: #d7efff;
-      --bg-bottom: #eef8ff;
-      --card: rgba(252, 254, 255, 0.97);
-      --line: #d4e8f7;
-      --line-strong: #aacfe6;
-      --text: #1a3044;
-      --subtle: #587186;
-      --accent: #3f89c9;
-      --accent-deep: #275f96;
-      --accent-soft: #e7f3fb;
-      --white: #fcfeff;
-      --section-wash: linear-gradient(180deg, #f3faff, #fbfeff);
-      --section-blue: linear-gradient(180deg, #eef8ff, #f9fdff);
+      --bg-top: #ede0bf;
+      --bg-bottom: #faf5eb;
+      --card: rgba(255, 252, 247, 0.97);
+      --line: #e5d5ad;
+      --line-strong: #cfb572;
+      --text: #2f2514;
+      --subtle: #655430;
+      --accent: #ae8328;
+      --accent-deep: #6f531a;
+      --accent-soft: #f8ecd1;
+      --white: #fffdf8;
+      --section-wash: linear-gradient(180deg, #fffdf6, #fffef9);
+      --section-blue: linear-gradient(180deg, #f8f0df, #fffdf8);
     }
 
     body {
       margin: 0;
       min-height: 100vh;
       background:
-        radial-gradient(circle at top, rgba(255, 255, 255, 0.58), transparent 28%),
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.5), transparent 28%),
         linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
       color: var(--text);
       font-family: "Apple SD Gothic Neo", "Noto Serif KR", serif;
@@ -47,7 +47,7 @@
       border: 1px solid rgba(255, 255, 255, 0.78);
       border-radius: 30px;
       overflow: hidden;
-      box-shadow: 0 22px 52px rgba(34, 90, 140, 0.14);
+      box-shadow: 0 20px 44px rgba(87, 63, 18, 0.12);
       backdrop-filter: blur(12px);
     }
 
@@ -60,29 +60,29 @@
     }
 
     .card__content {
-      padding: 28px 18px 24px;
+      padding: 32px 20px 28px;
       text-align: center;
     }
 
     .card__eyebrow {
-      margin: 0 0 8px;
-      font-size: 12px;
+      margin: 0 0 12px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.22em;
-      color: var(--accent);
+      letter-spacing: 0.34em;
+      color: var(--accent-deep);
     }
 
     .card h1 {
       margin: 0;
-      font-size: 29px;
-      line-height: 1.32;
-      letter-spacing: -0.02em;
+      font-size: 31px;
+      line-height: 1.42;
+      letter-spacing: -0.03em;
     }
 
     .card__message {
-      margin: 16px 0 26px;
+      margin: 18px 0 30px;
       font-size: 15px;
-      line-height: 1.75;
+      line-height: 1.9;
       color: var(--subtle);
     }
 
@@ -96,12 +96,12 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
-      padding: 16px;
-      margin-bottom: 10px;
-      border: 1px solid var(--line-strong);
-      border-radius: 20px;
+      padding: 17px 16px;
+      margin-bottom: 12px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
       background: var(--white);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
       font-size: 15px;
       text-align: left;
     }
@@ -110,44 +110,45 @@
       display: inline-flex;
       align-items: center;
       width: fit-content;
-      padding: 4px 10px;
+      padding: 5px 10px;
       border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 13px;
+      background: #f3e5c2;
+      color: var(--accent-deep);
+      font-size: 12px;
       font-weight: 700;
+      letter-spacing: 0.04em;
     }
 
     .info span {
       color: var(--text);
-      line-height: 1.65;
+      line-height: 1.75;
       word-break: keep-all;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     .program {
-      margin-top: 12px;
-      padding: 20px 16px 16px;
-      border-radius: 24px;
+      margin-top: 18px;
+      padding: 22px 18px 18px;
+      border-radius: 20px;
       background:
-        radial-gradient(circle at top right, rgba(255, 255, 255, 0.86), transparent 26%),
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.76), transparent 24%),
         var(--section-blue);
-      border: 1px solid var(--line-strong);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.56);
+      border: 1px solid var(--line);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.46);
       text-align: left;
     }
 
     .program__header {
       display: block;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .program__title {
       margin: 0;
       color: var(--accent-deep);
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.3em;
     }
 
     .program__badge {
@@ -169,8 +170,8 @@
       grid-template-columns: 34px 1fr;
       gap: 12px;
       align-items: start;
-      padding: 12px 0;
-      border-top: 1px solid #d8eaf7;
+      padding: 14px 0;
+      border-top: 1px solid #eadab0;
     }
 
     .program__item:first-child {
@@ -185,45 +186,46 @@
       width: 34px;
       height: 34px;
       border-radius: 50%;
-      background: linear-gradient(180deg, #5ba9e5, #3f89c9);
-      color: var(--accent-deep);
+      background: #b48a2f;
       color: #fff;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      box-shadow: 0 8px 14px rgba(50, 110, 165, 0.18);
+      box-shadow: none;
+      letter-spacing: 0.04em;
     }
 
     .program__text {
       display: block;
       font-size: 15px;
-      line-height: 1.65;
+      line-height: 1.75;
       color: var(--text);
-      font-weight: 600;
+      font-weight: 500;
     }
 
     .note {
-      margin-top: 18px;
-      font-size: 13px;
-      line-height: 1.7;
+      margin-top: 22px;
+      font-size: 12px;
+      line-height: 1.85;
+      letter-spacing: 0.02em;
       color: var(--subtle);
     }
 
     .rsvp {
-      margin-top: 20px;
-      padding: 18px 16px;
-      border-radius: 24px;
+      margin-top: 24px;
+      padding: 22px 18px;
+      border-radius: 20px;
       background: var(--section-blue);
-      border: 1px solid var(--line-strong);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.56);
+      border: 1px solid var(--line);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.46);
       text-align: left;
     }
 
     .rsvp__title {
       margin: 0 0 12px;
       color: var(--accent-deep);
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.3em;
     }
 
     .rsvp__summary {
@@ -237,21 +239,22 @@
       padding: 14px 12px;
       border-radius: 18px;
       background: var(--white);
-      border: 1px solid var(--line-strong);
+      border: 1px solid var(--line);
       text-align: center;
-      box-shadow: 0 8px 18px rgba(72, 127, 178, 0.08);
+      box-shadow: none;
     }
 
     .rsvp__stat-label {
       display: block;
-      margin-bottom: 6px;
-      font-size: 12px;
+      margin-bottom: 7px;
+      font-size: 11px;
+      letter-spacing: 0.03em;
       color: var(--subtle);
     }
 
     .rsvp__stat-count {
       display: block;
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 700;
       color: var(--accent);
       line-height: 1;
@@ -266,12 +269,13 @@
     .rsvp__button {
       border: 0;
       border-radius: 16px;
-      padding: 14px 12px;
+      padding: 15px 12px;
       font: inherit;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
       cursor: pointer;
       transition: transform 0.15s ease, opacity 0.15s ease, background 0.15s ease;
+      letter-spacing: 0.04em;
     }
 
     .rsvp__button:active {
@@ -279,12 +283,12 @@
     }
 
     .rsvp__button--attend {
-      background: #4f9ddd;
+      background: #b48a2f;
       color: #fff;
     }
 
     .rsvp__button--decline {
-      background: #dfeff9;
+      background: #f4e7c6;
       color: var(--accent-deep);
     }
 
@@ -299,8 +303,8 @@
 
     .rsvp__label {
       display: block;
-      margin-bottom: 8px;
-      font-size: 14px;
+      margin-bottom: 10px;
+      font-size: 13px;
       color: var(--subtle);
     }
 
@@ -312,9 +316,9 @@
     .rsvp__input {
       flex: 1;
       min-width: 0;
-      border: 1px solid var(--line-strong);
+      border: 1px solid var(--line);
       border-radius: 16px;
-      padding: 13px 14px;
+      padding: 14px 14px;
       font: inherit;
       font-size: 15px;
       color: var(--text);
@@ -328,7 +332,7 @@
       font: inherit;
       font-size: 14px;
       font-weight: 700;
-      background: #4f9ddd;
+      background: #b48a2f;
       color: #fff;
       cursor: pointer;
       white-space: nowrap;
@@ -342,15 +346,16 @@
 
     .guest-list__section {
       padding: 16px;
-      border-radius: 20px;
+      border-radius: 18px;
       background: #fff;
-      border: 1px solid var(--line-strong);
-      box-shadow: 0 8px 20px rgba(72, 127, 178, 0.08);
+      border: 1px solid var(--line);
+      box-shadow: none;
     }
 
     .guest-list__heading {
-      margin: 0 0 10px;
-      font-size: 15px;
+      margin: 0 0 12px;
+      font-size: 14px;
+      letter-spacing: 0.08em;
       color: var(--accent-deep);
     }
 
@@ -358,7 +363,7 @@
       margin: 0;
       padding-left: 18px;
       font-size: 14px;
-      line-height: 1.8;
+      line-height: 1.9;
       color: var(--text);
     }
 
@@ -387,39 +392,42 @@
       border-radius: 999px;
       padding: 7px 10px;
       font: inherit;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       cursor: pointer;
       background: var(--accent-soft);
       color: var(--accent-deep);
+      letter-spacing: 0.03em;
     }
 
     .guest-list__action--delete {
-      background: #eef6fb;
-      color: #557d9d;
+      background: #f5e8c8;
+      color: #7b5b1c;
     }
 
     .guest-list__empty {
       margin: 0;
-      font-size: 14px;
+      font-size: 13px;
+      line-height: 1.75;
       color: var(--subtle);
     }
 
     .sync-status {
-      margin-top: 12px;
-      font-size: 13px;
-      line-height: 1.6;
+      margin-top: 16px;
+      font-size: 12px;
+      line-height: 1.85;
+      letter-spacing: 0.02em;
       color: var(--subtle);
       text-align: center;
     }
 
     @media (max-width: 480px) {
       .card__content {
-        padding: 24px 16px 22px;
+        padding: 28px 16px 24px;
       }
 
       .card h1 {
-        font-size: 26px;
+        font-size: 27px;
       }
 
       .info li {

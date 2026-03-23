@@ -277,6 +277,43 @@
       color: var(--text);
     }
 
+    .guest-list__names li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .guest-list__name {
+      flex: 1;
+      min-width: 0;
+      word-break: keep-all;
+    }
+
+    .guest-list__actions {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .guest-list__action {
+      border: 0;
+      border-radius: 999px;
+      padding: 7px 10px;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .guest-list__action--delete {
+      background: #f3e6de;
+      color: #9a5c48;
+    }
+
     .guest-list__empty {
       margin: 0;
       font-size: 14px;
@@ -302,6 +339,15 @@
 
       .rsvp__submit {
         padding: 13px 16px;
+      }
+
+      .guest-list__names li {
+        align-items: flex-start;
+      }
+
+      .guest-list__actions {
+        flex-wrap: wrap;
+        justify-content: flex-end;
       }
     }
   </style>
@@ -391,6 +437,7 @@
   </main>
 
   <script>
+    const STORAGE_KEY = "birthday-invite-rsvp";
     const buttons = document.querySelectorAll(".rsvp__button");
     const form = document.getElementById("rsvp-form");
     const label = form.querySelector(".rsvp__label");
@@ -401,10 +448,95 @@
     const declineEmpty = document.getElementById("decline-empty");
 
     let currentType = "attend";
+    let guestData = {
+      attend: [],
+      decline: []
+    };
+
+    const saveGuestData = () => {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(guestData));
+    };
+
+    const loadGuestData = () => {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) {
+        return;
+      }
+
+      try {
+        const parsed = JSON.parse(saved);
+        guestData.attend = Array.isArray(parsed.attend) ? parsed.attend : [];
+        guestData.decline = Array.isArray(parsed.decline) ? parsed.decline : [];
+      } catch (error) {
+        guestData = { attend: [], decline: [] };
+      }
+    };
 
     const updateEmptyState = () => {
       attendEmpty.style.display = attendList.children.length ? "none" : "block";
       declineEmpty.style.display = declineList.children.length ? "none" : "block";
+    };
+
+    const moveGuest = (name, fromType, toType) => {
+      guestData[fromType] = guestData[fromType].filter((guest) => guest !== name);
+      guestData[toType].push(name);
+      saveGuestData();
+      renderGuestList();
+    };
+
+    const deleteGuest = (name, type) => {
+      guestData[type] = guestData[type].filter((guest) => guest !== name);
+      saveGuestData();
+      renderGuestList();
+    };
+
+    const createGuestItem = (name, type) => {
+      const item = document.createElement("li");
+      const nameText = document.createElement("span");
+      const actions = document.createElement("div");
+      const moveButton = document.createElement("button");
+      const deleteButton = document.createElement("button");
+
+      nameText.className = "guest-list__name";
+      nameText.textContent = name;
+
+      actions.className = "guest-list__actions";
+
+      moveButton.className = "guest-list__action";
+      moveButton.type = "button";
+      moveButton.textContent = type === "attend" ? "불참으로 변경" : "참석으로 변경";
+      moveButton.addEventListener("click", () => {
+        moveGuest(name, type, type === "attend" ? "decline" : "attend");
+      });
+
+      deleteButton.className = "guest-list__action guest-list__action--delete";
+      deleteButton.type = "button";
+      deleteButton.textContent = "삭제";
+      deleteButton.addEventListener("click", () => {
+        deleteGuest(name, type);
+      });
+
+      actions.appendChild(moveButton);
+      actions.appendChild(deleteButton);
+      item.appendChild(nameText);
+      item.appendChild(actions);
+
+      return item;
+    };
+
+    const renderGuestList = () => {
+      attendList.innerHTML = "";
+      declineList.innerHTML = "";
+
+      guestData.attend.forEach((name) => {
+        attendList.appendChild(createGuestItem(name, "attend"));
+      });
+
+      guestData.decline.forEach((name) => {
+        declineList.appendChild(createGuestItem(name, "decline"));
+      });
+
+      updateEmptyState();
     };
 
     const setMode = (type) => {
@@ -433,21 +565,24 @@
         return;
       }
 
-      const item = document.createElement("li");
-      item.textContent = name;
+      const oppositeType = currentType === "attend" ? "decline" : "attend";
 
-      if (currentType === "attend") {
-        attendList.appendChild(item);
-      } else {
-        declineList.appendChild(item);
+      if (guestData[currentType].includes(name)) {
+        input.value = "";
+        input.focus();
+        return;
       }
 
+      guestData[oppositeType] = guestData[oppositeType].filter((guest) => guest !== name);
+      guestData[currentType].push(name);
+      saveGuestData();
+      renderGuestList();
       input.value = "";
-      updateEmptyState();
       input.focus();
     });
 
-    updateEmptyState();
+    loadGuestData();
+    renderGuestList();
   </script>
 </body>
 </html>
